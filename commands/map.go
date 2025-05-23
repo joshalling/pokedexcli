@@ -3,7 +3,7 @@ package commands
 import "fmt"
 
 func Mapf(c *Config) error {
-	if c.LocationsNext == "" {
+	if c.LocationsNext == "" && c.LocationsPrev != "" {
 		fmt.Println("you're on the last page")
 		return nil
 	}
