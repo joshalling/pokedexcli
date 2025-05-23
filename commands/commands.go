@@ -18,8 +18,8 @@ func GetCommands() map[string]cliCommand {
 			description: "Displays a help message",
 			Callback:    Help,
 		},
-		"mapf": {
-			name:        "mapf",
+		"map": {
+			name:        "map",
 			description: "List all location areas",
 			Callback:    Mapf,
 		},
