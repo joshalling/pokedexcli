@@ -5,27 +5,12 @@ import (
 	"fmt"
 	"os"
 	"strings"
+
+	"github.com/joshalling/pokedexcli/commands"
 )
 
-type cliCommand struct {
-	name        string
-	description string
-	callback    func() error
-}
+func startRepl(config *commands.Config) {
 
-func startRepl() {
-	commands := map[string]cliCommand{
-		"exit": {
-			name:        "exit",
-			description: "Exit the Pokedex",
-			callback:    commandExit,
-		},
-		"help": {
-			name:        "help",
-			description: "Displays a help message",
-			callback:    commandHelp,
-		},
-	}
 	scanner := bufio.NewScanner(os.Stdin)
 	for {
 		fmt.Print("Pokedex > ")
@@ -37,33 +22,17 @@ func startRepl() {
 		}
 		command := words[0]
 
-		cmd, ok := commands[command]
+		cmd, ok := commands.GetCommands()[command]
 		if !ok {
 			fmt.Println("Unknown command")
-			continue
-		}
-
-		err := cmd.callback()
-		if err != nil {
-			fmt.Println(err)
+		} else {
+			err := cmd.Callback(config)
+			if err != nil {
+				fmt.Println(err)
+			}
 		}
 
 	}
-}
-
-func commandExit() error {
-	fmt.Println("Closing the Pokedex... Goodbye!")
-	os.Exit(0)
-	return nil
-}
-
-func commandHelp() error {
-	fmt.Println("Welcome to the Pokedex!")
-	fmt.Println("Usage:")
-	fmt.Println("")
-	fmt.Println("help: Displays a help message")
-	fmt.Println("exit: Exit the Pokedex")
-	return nil
 }
 
 func cleanInput(text string) []string {
