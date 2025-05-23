@@ -2,7 +2,7 @@ package commands
 
 import "fmt"
 
-func Mapf(c *Config) error {
+func Mapf(c *Config, _ []string) error {
 	if c.LocationsNext == "" && c.LocationsPrev != "" {
 		fmt.Println("you're on the last page")
 		return nil
@@ -19,7 +19,7 @@ func Mapf(c *Config) error {
 	return nil
 }
 
-func Mapb(c *Config) error {
+func Mapb(c *Config, _ []string) error {
 	if c.LocationsPrev == "" {
 		fmt.Println("you're on the first page")
 		return nil
