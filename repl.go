@@ -21,12 +21,13 @@ func startRepl(config *commands.Config) {
 			continue
 		}
 		command := words[0]
+		args := words[1:]
 
 		cmd, ok := commands.GetCommands()[command]
 		if !ok {
 			fmt.Println("Unknown command")
 		} else {
-			err := cmd.Callback(config)
+			err := cmd.Callback(config, args)
 			if err != nil {
 				fmt.Println(err)
 			}
