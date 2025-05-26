@@ -18,6 +18,7 @@ func Catch(c *Config, args []string) error {
 	result := rand.Intn(baseChance)
 	if result > pokemon.BaseExperience {
 		fmt.Printf("%s was caught!\n", pokemon.Name)
+		c.Pokedex[pokemon.Name] = pokemon
 	} else {
 		fmt.Printf("%s escaped!\n", pokemon.Name)
 	}
