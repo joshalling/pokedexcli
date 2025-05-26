@@ -25,3 +25,12 @@ func Inspect(c *Config, args []string) error {
 
 	return nil
 }
+
+func Pokedex(c *Config, _ []string) error {
+	fmt.Println("Your Pokedex:")
+	for _, pokemon := range c.Pokedex {
+		fmt.Printf("  - %s\n", pokemon.Name)
+	}
+
+	return nil
+}
