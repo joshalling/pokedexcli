@@ -6,7 +6,7 @@ import (
 
 func Inspect(c *Config, args []string) error {
 	id := args[0]
-	pokemon, exists := c.Pokedex[id]
+	pokemon, exists := c.Data.Pokedex[id]
 	if !exists {
 		fmt.Printf("Pokemon with %s not found in Pokedex\n", id)
 	} else {
@@ -28,7 +28,7 @@ func Inspect(c *Config, args []string) error {
 
 func Pokedex(c *Config, _ []string) error {
 	fmt.Println("Your Pokedex:")
-	for _, pokemon := range c.Pokedex {
+	for _, pokemon := range c.Data.Pokedex {
 		fmt.Printf("  - %s\n", pokemon.Name)
 	}
 
