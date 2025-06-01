@@ -33,6 +33,11 @@ func GetCommands() map[string]cliCommand {
 			description: "Inspect a Pokémon",
 			Callback:    Inspect,
 		},
+		"load": {
+			name:        "load",
+			description: "Loads game data into config",
+			Callback:    Load,
+		},
 		"map": {
 			name:        "map",
 			description: "List all location areas",
@@ -47,6 +52,11 @@ func GetCommands() map[string]cliCommand {
 			name:        "pokedex",
 			description: "List all Pokémon in the Pokedex",
 			Callback:    Pokedex,
+		},
+		"save": {
+			name:        "save",
+			description: "Save your current state",
+			Callback:    Save,
 		},
 	}
 }
