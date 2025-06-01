@@ -53,6 +53,11 @@ func GetCommands() map[string]cliCommand {
 			description: "List all Pokémon in the Pokedex",
 			Callback:    Pokedex,
 		},
+		"print": {
+			name:        "print [pokemon]",
+			description: "Print a Pokémon to the terminal",
+			Callback:    Print,
+		},
 		"save": {
 			name:        "save",
 			description: "Save your current state",

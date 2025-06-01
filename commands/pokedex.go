@@ -8,7 +8,7 @@ func Inspect(c *Config, args []string) error {
 	id := args[0]
 	pokemon, exists := c.Data.Pokedex[id]
 	if !exists {
-		fmt.Printf("Pokemon with %s not found in Pokedex\n", id)
+		fmt.Printf("Pokemon (%s) not found in Pokedex\n", id)
 	} else {
 		fmt.Printf("Name: %s\n", pokemon.Name)
 		fmt.Printf("Height: %d\n", pokemon.Height)

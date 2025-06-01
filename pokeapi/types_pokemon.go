@@ -16,4 +16,7 @@ type Pokemon struct {
 			Name string `json:"name"`
 		} `json:"type"`
 	} `json:"types"`
+	Sprites struct {
+		FrontDefault string `json:"front_default"`
+	} `json:"sprites"`
 }
